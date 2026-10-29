@@ -51,8 +51,8 @@ a{color:var(--c)}
 
 /* ---------- viewport & stage ---------- */
 #viewport{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-#stage{position:relative;width:min(100vw,calc((100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)) * 16 / 9));aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:var(--bg);isolation:isolate}
-.deck{position:absolute;inset:0;font-size:1.12cqw}
+#stage{position:relative;width:100vw;height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));container-type:size;overflow:hidden;background:var(--bg);isolation:isolate}
+.deck{position:absolute;inset:0;font-size:min(1.12cqw,1.99cqh)}
 .aurora{position:absolute;inset:0;z-index:0;pointer-events:none}
 .aurora canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 @keyframes drift1{to{transform:translate(18cqw,10cqw) scale(1.15)}}
@@ -519,7 +519,7 @@ a{color:var(--c)}
 /* ---------- portrait / phone ---------- */
 html.portrait body{overflow:auto}
 html.portrait #viewport{position:static;display:block}
-html.portrait #stage{width:100vw;aspect-ratio:auto;min-height:100dvh;overflow:visible}
+html.portrait #stage{width:100vw;height:auto;container-type:inline-size;aspect-ratio:auto;min-height:100dvh;overflow:visible}
 html.portrait .deck{position:relative;font-size:3.9cqw;min-height:100dvh}
 html.portrait .slide{position:relative;padding:5.2em 1.15em 5.4em;min-height:100dvh;gap:1.1em;padding-left:max(1.15em,env(safe-area-inset-left,0px));padding-right:max(1.15em,env(safe-area-inset-right,0px))}
 html.portrait .slide.out{display:none}
